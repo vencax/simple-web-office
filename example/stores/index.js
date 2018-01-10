@@ -1,6 +1,7 @@
 import MessagesStore from './messages'
 import SpreadsheetStore from '../../src/stores/spreadsheet'
 import SimpleTextStore from '../../src/stores/simpletext'
+import ContractStore from '../../src/stores/contract'
 
 export default class StateStore extends MessagesStore {
   //
@@ -31,5 +32,29 @@ This is any simple text that can be:
 - it can also have [links](http://google.com)
 - or images: ![google image](https://loremflickr.com/320/240?random=1)
     `)
+  }
+
+  showContract (id) {
+    this.cv = new ContractStore()
+    this.cv.onLoaded({
+      contractor: 123,
+      subscriber: 321,
+      sections: [{
+        name: 'first section',
+        paragraphs: [
+          'par 1 **in bold**',
+          [
+            'section 1.1 and its contents',
+            'section 1.2 and its contents'
+          ],
+          'the third section *in italic*'
+        ]
+      }, {
+        name: 'footer',
+        paragraphs: [
+          'footer content'
+        ]
+      }]
+    })
   }
 }
