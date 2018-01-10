@@ -4,16 +4,20 @@ import {MobxRouter} from 'mobx-router'
 import MessagesView from './messages'
 
 export default function App ({store}) {
-  const menu = (
+  const menu = [(
     <a href='javascript:void(0)' onClick={() => store.goTo('spreadsheet', {id: 1})}>
       spreadsheet
     </a>
-  )
+  ), (
+    <a href='javascript:void(0)' onClick={() => store.goTo('simpletext', {id: 1})}>
+      simpletext
+    </a>
+  )]
   return (
     <div className='row' style={{width: '100%'}}>
-      {menu}
+      <div>{menu}</div>
       <MessagesView store={store} />
-      <div style={{padding: '65px 0 65px 18px'}} className='main'>
+      <div className='main'>
         <Provider store={store}>
           <MobxRouter />
         </Provider>
