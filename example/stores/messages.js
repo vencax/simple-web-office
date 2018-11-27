@@ -2,7 +2,7 @@ import {observable, action} from 'mobx'
 
 export default class MessageStore {
 
-  @observable messages = observable.shallowMap({})
+  @observable messages = observable.map({}, {deep: false})
 
   @action addMessage(text, type, timeout = 2000) {
     const message = {text, type, timeout}

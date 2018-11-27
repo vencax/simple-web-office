@@ -5,7 +5,7 @@ import { startRouter, RouterStore } from 'mobx-router'
 import { useStrict } from 'mobx'
 import AppStore from './stores'
 import views from './routeconfig'
-useStrict(true)
+// useStrict(true)
 
 const router = new RouterStore()
 

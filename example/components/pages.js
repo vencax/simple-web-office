@@ -1,13 +1,13 @@
 import React from 'react'
-import {observer, inject} from 'mobx-react'
+import {inject} from 'mobx-react'
 
-import SpreadSheet from '../../../src/components/spreadsheet'
-import SimpleText from '../../../src/components/simpletext'
-import Contract from '../../../src/components/contract'
+import SpreadSheet from '../../src/components/spreadsheet'
+import SimpleText from '../../src/components/simpletext'
+import Contract from '../../src/components/simpletext'
 
 function _createComponent (Form) {
   const FormComponent = ({store}) => (<Form store={store.cv} />)
-  inject('store')(observer(FormComponent))
+  return inject('store')(FormComponent)
 }
 
 export default {
